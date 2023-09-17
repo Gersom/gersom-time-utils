@@ -1,5 +1,5 @@
 {
-  "name": "@gersom/time-utils",
+  "name": "gersom-time-utils",
   "author": "Gersom",
   "version": "1.0.2",
   "description": "This set of functions provides useful tools for manipulating and comparing times in different formats. These functions are especially helpful when working with schedules and tasks such as normalizing times, comparing if two times are equal, or checking if the current time falls within a specified range",

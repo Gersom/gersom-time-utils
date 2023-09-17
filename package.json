@@ -1,0 +1,35 @@
+{
+  "name": "ger-time-utilities",
+  "author": "Gersom",
+  "version": "1.0.1",
+  "description": "This set of functions provides useful tools for manipulating and comparing times in different formats. These functions are especially helpful when working with schedules and tasks such as normalizing times, comparing if two times are equal, or checking if the current time falls within a specified range",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "time",
+    "date",
+    "tiempo",
+    "fecha",
+    "timestamp",
+    "ms",
+    "dateTime",
+    "dateDate",
+    "diffDate",
+    "formatDate",
+    "formatMs",
+    "get",
+    "getCompareDate",
+    "getDate",
+    "getTime",
+    "getNextTime",
+    "getMs",
+    "getFormatDate"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Gersom/gersom-time-utils"
+  }
+}

@@ -1,7 +1,7 @@
 # Ger Time Utilities
 
 Author: Gersom
-Version: 0.1
+Version: 1.0.1
 
 This set of functions provides useful tools for manipulating and comparing times in different formats. These functions are especially helpful when working with schedules and tasks such as normalizing times, comparing if two times are equal, or checking if the current time falls within a specified range.
 
@@ -83,7 +83,7 @@ if (inRange) {
 # Ger Time Utilities - Español
 
 Autor: Gersom
-Versión: 0.1
+Versión: 1.0.1
 
 Este conjunto de funciones proporciona herramientas útiles para manipular y comparar horas en diferentes formatos. Estas funciones son especialmente útiles cuando se trabaja con horarios y se necesita realizar tareas como normalizar horas, comparar si dos horas son iguales o verificar si la hora actual se encuentra dentro de un rango especificado.
 

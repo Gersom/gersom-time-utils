@@ -1,9 +1,11 @@
 # Ger Time Utilities
 
 Author: Gersom
-Version: 1.0.1
+Version: 1.1.0
 
 This set of functions provides useful tools for manipulating and comparing times in different formats. These functions are especially helpful when working with schedules and tasks such as normalizing times, comparing if two times are equal, or checking if the current time falls within a specified range.
+
+Este conjunto de funciones proporciona herramientas útiles para manipular y comparar horas en diferentes formatos. Estas funciones son especialmente útiles cuando se trabaja con horarios y se necesita realizar tareas como normalizar horas, comparar si dos horas son iguales o verificar si la hora actual se encuentra dentro de un rango especificado.
 
 ## Contents
 
@@ -23,9 +25,9 @@ This function allows you to compare if two times are equal. It accepts two param
 
 The `normalizeTime` function is used to normalize a time in various formats to a numeric format. It accepts a `time` parameter that represents the time in different formats and returns the normalized time as a number.
 
-### `getHourAsNumber()`
+### `getHourAsNumber([TimeZone])`
 
-The `getHourAsNumber` function returns the current time in numeric format. This is useful for obtaining the current time in a numeric format such as 'HHMM', where 'HH' represents the hours and 'MM' represents the minutes.
+The `getHourAsNumber` function returns the current time in numeric format. This is useful for obtaining the current time in a numeric format such as 'HHMM', where 'HH' represents the hours and 'MM' represents the minutes. You can optionally provide a `TimeZone` parameter to get the time in a specific time zone. Example time zones: ['America/Lima', 'Europe/Madrid', 'America/Mexico_City', 'America/New_York'].
 
 ### `isCurrentTimeInRange(startTime, endTime)`
 
@@ -46,16 +48,16 @@ The functions in this set accept a variety of time formats, including:
 You can install this package using npm, pnpm, or yarn:
 
 ```terminal
-npm install @gersom/time-utils
-pnpm install @gersom/time-utils
-bun install @gersom/time-utils
-yarn add @gersom/time-utils
+npm install gersom-time-utils
+pnpm install gersom-time-utils
+bun install gersom-time-utils
+yarn add gersom-time-utils
 ```
 
 ## How to Use the Functions
 
 ```javascript
-const { compareTimes, normalizeTime, getHourAsNumber, isCurrentTimeInRange } = require('ger-time-utils');
+const { compareTimes, normalizeTime, getHourAsNumber, isCurrentTimeInRange } = require('gersom-time-utils');
 
 // Example of comparing times
 const result = compareTimes('15:30 PM', '03:30pm');
@@ -66,7 +68,7 @@ const normalizedHour = normalizeTime('9:15 AM');
 console.log(normalizedHour); // Should display 0915
 
 // Example of obtaining the current time in numeric format
-const currentHour = getHourAsNumber();
+const currentHour = getHourAsNumber(); // getHourAsNumber('America/New_York')
 console.log(currentHour); // Should display the current time in numeric format, e.g., 1430
 
 // Example of checking if the current time is within a range
@@ -83,7 +85,7 @@ if (inRange) {
 # Ger Time Utilities - Español
 
 Autor: Gersom
-Versión: 1.0.1
+Versión: 1.1.0
 
 Este conjunto de funciones proporciona herramientas útiles para manipular y comparar horas en diferentes formatos. Estas funciones son especialmente útiles cuando se trabaja con horarios y se necesita realizar tareas como normalizar horas, comparar si dos horas son iguales o verificar si la hora actual se encuentra dentro de un rango especificado.
 
@@ -97,17 +99,17 @@ Este conjunto de funciones proporciona herramientas útiles para manipular y com
 
 ## Funciones Disponibles
 
-### `compareTimes(time1, time2)`
+### `compareTimes(hora1, hora2)`
 
-Esta función permite comparar si dos horas son iguales. Acepta dos parámetros, `time1` y `time2`, que representan las horas a comparar. Las horas pueden estar en diferentes formatos, ya que la función las normaliza internamente antes de la comparación.
+Esta función permite comparar si dos horas son iguales. Acepta dos parámetros, `hora1` y `hora2`, que representan las horas a comparar. Las horas pueden estar en diferentes formatos, ya que la función las normaliza internamente antes de la comparación.
 
-### `normalizeTime(time)`
+### `normalizeTime(hora)`
 
-La función `normalizeTime` se utiliza para normalizar una hora en diferentes formatos a un formato numérico. Acepta un parámetro `time` que representa la hora en diferentes formatos y devuelve la hora normalizada como un número.
+La función `normalizeTime` se utiliza para normalizar una hora en diferentes formatos a un formato numérico. Acepta un parámetro `hora` que representa la hora en diferentes formatos y devuelve la hora normalizada como un número.
 
-### `getHourAsNumber()`
+### `getHourAsNumber([ZonaHoraria])`
 
-La función `getHourAsNumber` devuelve la hora actual en formato numérico. Esto es útil para obtener la hora actual en un formato numérico como 'HHMM', donde 'HH' representa las horas y 'MM' representa los minutos.
+La función `getHourAsNumber` devuelve la hora actual en formato numérico. Esto es útil para obtener la hora actual en un formato numérico como 'HHMM', donde 'HH' representa las horas y 'MM' representa los minutos. Opcionalmente, puedes proporcionar un parámetro `ZonaHoraria` para obtener la hora en una zona horaria específica. Ejemplos de zonas horarias: ['America/Lima', 'Europe/Madrid', 'America/Mexico_City', 'America/New_York'].
 
 ### `isCurrentTimeInRange(startTime, endTime)`
 
@@ -128,30 +130,28 @@ Las funciones de este conjunto aceptan una variedad de formatos de hora, incluye
 Puedes instalar este paquete utilizando npm, pnpm o yarn:
 
 ```terminal
-npm install @gersom/time-utils
-pnpm install @gersom/time-utils
-bun install @gersom/time-utils
-yarn add @gersom/time-utils
+npm install gersom-time-utils
+pnpm install gersom-time-utils
+bun install gersom-time-utils
+yarn add gersom-time-utils
 ```
 
 ## Uso de las Funciones
 
 ```javascript
-const { compareTimes, normalizeTime, getHourAsNumber, isCurrentTimeInRange } = require('ger-time-utils');
+const { compareTimes, normalizeTime, getHourAsNumber, isCurrentTimeInRange } = require('gersom-time-utils');
 
 // Ejemplo de comparación de horas
-const result = compareTimes('15:30 PM', '03:30pm');
-console.log(result); // Debe devolver true o false
-
- mostrar "Las horas son iguales"
+const result = compareTimes('15:30', '03:30pm');
+console.log(result); // Debe devolver true
 
 // Ejemplo de normalización de hora
 const normalizedHour = normalizeTime('9:15 AM');
 console.log(normalizedHour); // Debe mostrar 0915
 
-// Ejemplo de obtención de hora actual en formato numérico
-const currentHour = getHourAsNumber();
-console.log(currentHour); // Debe mostrar la hora actual en formato numérico, por ejemplo, 1430
+// Ejemplo de obtención de la hora actual en formato numérico
+const currentHour = getHourAsNumber(); // getHourAsNumber('America/New_York')
+console.log(currentHour); // Debería mostrar la hora actual en formato numérico, por ejemplo, 1430
 
 // Ejemplo de verificación si la hora actual está en un rango
 const inRange = isCurrentTimeInRange('09:00 AM', '17:00 PM');

@@ -2,31 +2,48 @@
 //  Función para obtener hora actual en formato numérico
 //  ---------------------
 
-function getHourAsNumber() {
-  // Obtener la hora actual y los minutos actuales
-  const now = new Date();
-  const hours = now.getHours();
-  const minutes = now.getMinutes();
+function getHourAsNumber(targetTimeZone = null) {
+  if (targetTimeZone === null) {
+    // Si targetTimeZone es null, obtener la hora actual en la zona horaria local
+    const now = new Date();
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+    
+    // Calcular la hora en formato numérico (HHMM)
+    const hourAsNumber = hours * 100 + minutes;
+    
+    return hourAsNumber;
+  } else {
+    // Si se proporciona targetTimeZone, obtener la hora en esa zona horaria
+    const options = {
+      timeZone: targetTimeZone,
+      hour12: false,
+      hour: '2-digit',
+      minute: '2-digit',
+    };
   
-  // Calcular la hora en formato numérico (HHMM)
-  const hourAsNumber = hours * 100 + minutes;
-
-  return hourAsNumber;
+    const currentTime = new Date().toLocaleString('en-US', options);
+  
+    // Parsear la hora en formato HH:MM a un número
+    const [hours, minutes] = currentTime.split(':').map(Number);
+    const hourAsNumber = hours * 100 + minutes;
+  
+    return hourAsNumber;
+  }
 }
 
+
+
+// ['America/Lima','Europe/Madrid' ,'America/Mexico_City','America/New_York']
+
 // Ejemplos de uso:
-// // Obtener hora numero actual (1500)
-// const horaActual = getHourAsNumber();
-// console.log(`La hora actual en formato numérico es: ${horaActual}`);
+// // Ejemplo de uso sin especificar targetTimeZone (usando la zona horaria local)
+// const hourAsNumberLocal = getHourAsNumber();
+// console.log(`La hora actual en la zona horaria local en formato numérico es: ${hourAsNumberLocal}`);
 
-// // Establecer una hora específica (14:30)
-// const otraHora = new Date('2023-09-17T14:30:00');
-// const otraHoraNumerica = getHourAsNumber(otraHora);
-// console.log(`Otra hora en formato numérico: ${otraHoraNumerica}`);
-
-// // Establecer otra hora específica (09:15)
-// const horaPersonalizada = new Date('2023-09-17T09:15:00');
-// const horaPersonalizadaNumerica = getHourAsNumber(horaPersonalizada);
-// console.log(`Hora personalizada en formato numérico: ${horaPersonalizadaNumerica}`);
+// // Ejemplo de uso con targetTimeZone especificado
+// const targetTimeZone = 'America/New_York'; // Cambia a la zona horaria deseada
+// const hourAsNumberNewYork = getHourAsNumber(targetTimeZone);
+// console.log(`La hora actual en ${targetTimeZone} en formato numérico es: ${hourAsNumberNewYork}`);
 
 module.exports = getHourAsNumber;
